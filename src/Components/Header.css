@@ -1,0 +1,38 @@
+.Banner {
+    width:70%;
+}
+.style {
+    background: black;
+}
+.Title{
+    color: white;
+    font-family: 'HBB';
+    font-size: 400%;
+}
+.btn-cfg{
+    position: relative;
+    font-family: 'HBB';
+    font-size: 150%;
+    width: 55%;
+    height: 33px;
+    top: -10px;
+}
+
+a { color: black }
+
+.txt{
+    text-decoration: none;
+}
+
+.stgIcon{
+    position: absolute;
+    width: 10%;
+    margin-left: -27px;
+    top: 3px;
+}
+
+
+@font-face { 
+    font-family: 'HBB';
+    src: local('HBB'), url(../fonts/HBB.otf) format('opentype');
+  }
