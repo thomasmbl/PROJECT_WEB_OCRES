@@ -1,10 +1,10 @@
 const mongoose=require("mongoose");
 const { schema } =mongoose;
 
-const seasonschema=new mongoose.Schema({
+const deathSchema=new mongoose.Schema({
     death:{type: String, require: true},
       //death: season,
-      numberOfDeath: number,
+      numberOfDeath: Number,
 },
 {
     timestamps: true

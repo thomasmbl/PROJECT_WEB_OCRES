@@ -40,7 +40,7 @@ app.use(function(err, req, res, next) {
 const mongoose = require('mongoose');
 
 mongoose.Promise = global.Promise;
-const dbName = admin;  // Nom de votre BDD
+const dbName = "deaths";  // Nom de votre BDD
 const dbUrl = `mongodb://localhost:27017/${dbName}`;
 
 // Connecting to the db
