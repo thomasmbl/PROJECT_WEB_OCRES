@@ -22,6 +22,6 @@ Les instructions sont à retrouver dans le pdf instruction.pdf.
 
 ## TRELLO & FIGMA
 
-https://trello.com/b/P4KRcE3L/taches
-https://www.figma.com/file/mx6sRKnIbEFGTzvvDFPXB8/Untitled?node-id=0%3A1&t=dE9zqYhD21dauu0K-1
+- https://trello.com/b/P4KRcE3L/taches
+- https://www.figma.com/file/mx6sRKnIbEFGTzvvDFPXB8/Untitled?node-id=0%3A1&t=dE9zqYhD21dauu0K-1
 
