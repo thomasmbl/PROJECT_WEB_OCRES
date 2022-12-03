@@ -4,18 +4,15 @@
     padding: 0em 1em;
     display: flex;
 }
-
 .Banner {
     width:70%;
 }
-
 .TopRight{
     width: 100%;
     margin-left: 7%;
     background-color: black;
     font-size: 100%;
 }
-
 .Title{
     color: white;
     font-family: 'HBB';
@@ -45,12 +42,34 @@
 @font-face { 
     font-family: 'HBB';
     src: local('HBB'), url(../fonts/HBB.otf) format('opentype');
-  }
+}
 
-/*
-@media screen and (max-width: 920px) {
+
+
+@media screen and (max-width: 320px) {
     .Title {
         font-size: 100%;
     }
+    .link{
+        font-size: 10px;
+    }
 }
-*/
+
+@media screen and (min-width: 321px) and (max-width: 767px) {
+    .Title {
+        font-size: 100%;
+    }
+    .link{
+        font-size: 10px;
+    }
+}
+
+
+@media screen and (width: 768px) {
+    .Title {
+        font-size: 200%;
+    }
+    .link{
+        font-size: 20px;
+    }
+}

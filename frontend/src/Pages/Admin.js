@@ -3,7 +3,46 @@ import './Admin.css';
 
 
 function Admin() {
-    const [quote, setQuote] = useState([])
+    
+
+    return(
+        <div className="mainContent">
+            <div>
+                <input type="search" id="site-search" placeholder='Enter saison number' name="q"/>
+                <button>GET</button>
+                <div>
+                    <label for="site-search">  Number of deaths = </label>
+                </div>
+            </div>
+
+            <div>
+                <input type="search" id="site-search" placeholder='Enter saison number' name="q"/>
+                <button>DELETE</button>    
+            </div>
+
+            <div>
+                <input type="search" id="site-search" placeholder='Enter saison number' name="q"/>
+                <input type="search" id="site-search" placeholder='Enter death number' name="q"/>
+                <button>ADD</button>    
+            </div>
+
+            <div>
+                <input type="search" id="site-search" placeholder='Enter saison number' name="q"/>
+                <input type="search" id="site-search" placeholder='Enter death number' name="q"/>
+                <button>UPDATE</button>    
+            </div>
+
+            
+            
+        </div>
+    )
+}
+
+export default Admin;
+
+/*
+
+const [quote, setQuote] = useState([])
 
     
 
@@ -17,23 +56,16 @@ function Admin() {
     fetchQuote();
   },[])
 
-    return(
-        <div className="mainContent">
-            hello admin
-            {quote && quote.length > 0 && quote.map((quoteObj, index) => (
+hello admin
+            {quote.map((quoteObj) => (
                     <div key={quoteObj.quote_id}>
                         <p>"{quoteObj.quote}"</p>
                     </div>
                     ))}
             
 
-        </div>
-    )
-}
 
-export default Admin;
 
-/*
 const Admin= ({getText}) => {
 
     

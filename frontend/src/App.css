@@ -1,14 +1,21 @@
 .App {
   text-align: center;
   background-color: black;
-  color: white;
-  height: 800px;
+  height: 750px;
 }
 
-
-.img {
-  width: 100%;
+@media screen and (max-width: 320px){
+  .App{
+    width: 400px;
+  }
 }
+
+@media screen and (min-width: 321px) and (max-width:767px){
+  .App{
+    width: 110%;
+  }
+}
+
 
 /*
 

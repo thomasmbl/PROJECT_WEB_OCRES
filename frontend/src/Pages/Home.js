@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./Home.css";
-import charac from "./Admin";
 import fetchData from "../utils/fetchData";
-import Dead from "../images/dead.gif";
 import Gif from "./Gif";
+import LineChart from "../Components/LineChart";
+
 
 
 function Home() {
@@ -116,7 +116,7 @@ function Home() {
 
                 <div className="col-2">
                     <div className="Card2">
-                        {data && data.length > 0 && data.map((dataObj) => (
+                        {data.map((dataObj) => (
                             <div key={dataObj.char_id}>
                                 <h1>Character Infos</h1>
                                 <li>Name = {dataObj.name}</li>
@@ -129,7 +129,7 @@ function Home() {
 
                     <div className="row">
                         <div className="Card3">
-                            {data && data.length > 0 && data.map((dataObj) => (
+                            {data.map((dataObj) => (
                                 <div key={dataObj.char_id}>
                                     <p>{dataObj.nickname}</p>
                                 </div>
@@ -137,7 +137,7 @@ function Home() {
                         </div>
                     
                         <div className="Card4">
-                            {data && data.length > 0 && data.map((dataObj) => (
+                            {data.map((dataObj) => (
                                 <div key={dataObj.char_id}>
                                     <Gif text={dataObj.status}></Gif>
                                 </div>
@@ -148,11 +148,17 @@ function Home() {
 
                 <div className="col-3">
                     <div className="Card5">
-                        {quote && quote.length > 0 && quote.map((quoteObj) => (
+                        {quote.map((quoteObj) => (
                             <div key={quoteObj.quote_id}>
-                                <p>"{quoteObj.quote}" - {quoteObj.author}</p>
+                                <h3>Random quote</h3>
+                                <p className="p1">"{quoteObj.quote}"</p>
+                                <p className="p2">- {quoteObj.author} -</p>
                             </div>
                         ))}
+                    </div>
+
+                    <div className="Card6">
+                        <LineChart class='chart'></LineChart>
                     </div>
                 </div>
             </div>

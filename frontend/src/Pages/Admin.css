@@ -1,0 +1,8 @@
+.mainContent{
+    width: 100%;
+    position: relative;
+    margin-top: 20px;
+}
+.mainContent input{
+    width: 120px;
+}
