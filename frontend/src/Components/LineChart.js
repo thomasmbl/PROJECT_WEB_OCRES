@@ -59,7 +59,7 @@ const LineChart = () => {
   var data = {
     labels: chart?.coins?.map(x => x.name),
     datasets: [{
-      label: `${chart?.coins?.length} Coins Available`,
+      label: `Coins Available`,
       data: chart?.coins?.map(x => x.price),
       backgroundColor: [
         'rgba(255, 99, 132, 0.2)',
