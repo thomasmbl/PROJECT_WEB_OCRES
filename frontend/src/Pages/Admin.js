@@ -1,9 +1,21 @@
+
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import './Admin.css';
 
 
 function Admin() {
     
+    const [chart, setChart] = useState([])
+    const fetchChart = () => {
+        return axios.get("http://localhost:3001/saisons")
+              .then((response) => response.json())
+              .then((json) => setChart(json.data));
+      }
+    
+      useEffect(() => {
+        fetchChart();
+      },[])
 
     return(
         <div className="mainContent">
@@ -32,7 +44,13 @@ function Admin() {
                 <button>UPDATE</button>    
             </div>
 
-            
+            <div>
+            {chart.map((chartObj) => (
+                    <div key={chartObj._id}>
+                        <p>"{chartObj.saisonNumber}"</p>
+                    </div>
+                    ))}
+            </div>
             
         </div>
     )

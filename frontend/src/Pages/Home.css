@@ -227,6 +227,10 @@
         margin-left: 200px;
         margin-top: 25px;
     }
+    .Card6{
+        margin-left: 22px;
+        width: 350px;
+    }
     
     .Widgets{
         width: 320px;
@@ -275,6 +279,10 @@
         width: 320%;
         font-size: 20%;
         margin-top: 5px;
+    }
+    .Card6{
+        margin-left: 24px;
+        width: 350px;
     }
 
     .p1{
@@ -342,6 +350,10 @@
         font-size: 10px;
         margin-left: 200px;
         margin-top: 23px;
+    }
+    .Card6{
+        margin-left: -150px;
+        width: 350px;
     }
     
     .Widgets{
