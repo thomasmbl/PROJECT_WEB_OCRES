@@ -1,18 +1,10 @@
 # Projet de fin de semestre
 
-A lire impérativement avant de commencer quoi que ce soit, ce sont les règles que vous devrez appliquer tout au long du semestre:
-
-<p align="center">
- <a href="https://gitlab.com/Adrien_Kourganoff/instructions_web_ocres_ing4/-/blob/master/README.md">Règles pour le semestre</a>
-</p>
+Trouvez à la fin les liens figma et trello de ce projet.
 
 ## Introduction
 
-Ce repo git contient deux repertoires. L'un concerne la partie backend et l'autre la partie frontend.
-
-Les deux repertoires ont été initialisé pour vous aider à démarrer le projet dans les meilleures conditions.
-
-Chacun de ces repertoires contient un README.md qui vous pouvez vous approprier. Nous vous encourageons à le faire en y mettant toute les informations nécessaires à la compréhension de votre projet
+Ce repo git contient deux repertoires. L'un concerne la partie backend et l'autre la partie frontend de notre projet de dashboard sur le thème de la série Breaking Bad
 
 ## Instructions
 
