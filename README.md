@@ -1,4 +1,4 @@
-# Projet de fin de semestre
+# Projet dashboard breaking bad
 
 Trouvez à la fin les liens figma et trello de ce projet.
 
