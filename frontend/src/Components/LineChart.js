@@ -9,6 +9,8 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
+import axios from "axios";
+
 
 import { Line } from 'react-chartjs-2';
 
@@ -24,43 +26,25 @@ ChartJS.register(
 
 
 const LineChart = () => {
-  const [chart, setChart] = useState({})
-  var baseUrl = "https://api.coinranking.com/v2/coins/?limit=10";
-  var proxyUrl = "https://cors-anywhere.herokuapp.com/";
-  var apiKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-
-
+  const [chart, setChart] = useState([]);
 
   useEffect(() => {
-    const fetchCoins = async () => {
-      await fetch(`${proxyUrl}${baseUrl}`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          'x-access-token': `${apiKey}`,
-          'Access-Control-Allow-Origin': "*"
-        }
-      })
-        .then((response) => {
-          if (response.ok) {
-            response.json().then((json) => {
-              console.log(json.data);
-              setChart(json.data)
-            });
-          }
-        }).catch((error) => {
-          console.log(error);
-        });
-    };
-    fetchCoins()
-  }, [baseUrl, proxyUrl, apiKey])
+      getSaisons();
+  }, [])
+
+  const getSaisons = async () => {
+      const res = await axios.get("http://localhost:3001/saisons")
+      if (res.status === 200) {
+          setChart(res.data);
+      }
+  };
 
   console.log("chart", chart);
   var data = {
-    labels: chart?.coins?.map(x => x.name),
+    labels: chart?.map(x => x.saisonNumber),
     datasets: [{
-      label: `Coins Available`,
-      data: chart?.coins?.map(x => x.price),
+      label: `Deaths`,
+      data: chart?.map(x => x.deathsNumber),
       backgroundColor: [
         'rgba(255, 99, 132, 0.2)',
         'rgba(54, 162, 235, 0.2)',

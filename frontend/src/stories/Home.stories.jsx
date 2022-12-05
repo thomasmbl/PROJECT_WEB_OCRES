@@ -1,6 +1,7 @@
 import '../Pages/Home.css'
 import Dead from '../images/dead.gif';
 import '../Pages/Gif.css';
+import Lgraph from '../images/Lgraph.png'
 
 export default {
     title:'UI/W1',
@@ -15,7 +16,7 @@ export const W1 = (args) => {
 }
 
 export const W2 = (args) => {
-    return <div className="Card2">
+    return <div className="Card2" style={{height:'122px'}}>
                 <h1>Character Infos</h1>
                 <li>Name = Walter White</li>
                 <li>Birthday = 09-07-1958</li>
@@ -25,7 +26,7 @@ export const W2 = (args) => {
 
 export const W3 = (args) => {
     return <div className="Card3">
-                <p>Heisenberg</p>
+                <p style={{marginLeft:'32px'}}>Heisenberg</p>
             </div>
 }
 
@@ -37,9 +38,16 @@ export const W4 = (args) => {
 }
 
 export const W5 = (args) => {
-    return <div className="Card5">
+    return <div className="Card5" style={{marginLeft:'25px'}}>
                 <h3>Random quote</h3>
                 <p className="p1">"I am not in danger, Skyler. I am the danger!"</p>
                 <p className="p2">- Walter White -</p>
+            </div>
+}
+
+export const W6 = (args) => {
+    return <div className="Card6" style={{height:'450px'}}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore nulla maiores quae nemo corporis, deserunt suscipit voluptas ullam repellendus explicabo cum cumque quia sint magnam odio, sed iure sunt aliquid?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe quos consequatur eaque praesentium veniam tempore? Possimus quam voluptatum voluptates exercitationem et dolorum iste molestias quae! Velit ipsa exercitationem excepturi atque. 
+                <img src={Lgraph} className="cardimg" alt="img"></img>
             </div>
 }

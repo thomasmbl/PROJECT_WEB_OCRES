@@ -2,101 +2,124 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import './Admin.css';
+import { Link } from "react-router-dom";
+import { TonalitySharp } from "@mui/icons-material";
+
+const init = {
+    saisonNumber:"",
+    deathsNumber:"",
+}
+
+const Admin = () => {
+    const [data, setdata] = useState([]);
+    const [state, setState] = useState(init);
+    const { saisonNumber, deathsNumber } = state;
+
+    /*
+    CRUD Methods
+    */
+    const getSaisons = async () => {
+        const res = await axios.get("http://localhost:3001/saisons")
+        if (res.status === 200) {
+            setdata(res.data);
+        }
+    };
+     
+    const addSaison = async (e) => {
+        await axios.post("http://localhost:3001/saisons", e);
+        getSaisons();
+    };
+
+    const deleteSaison = async (id) => {
+        await axios.delete(`http://localhost:3001/saisons/${id}`)
+        getSaisons();
+    };
+
+    const updateSaison = async (id) => {
+        await axios.patch(`http://localhost:3001/saisons/${id}`, state)
+        getSaisons();
+    }
 
 
-function Admin() {
+    const handleInputChange = (e) => {
+        let { name, value } = e.target;
+        setState({...state, [name]: value });
+    }
     
-    const [chart, setChart] = useState([])
-    const fetchChart = () => {
-        return axios.get("http://localhost:3001/saisons")
-              .then((response) => response.json())
-              .then((json) => setChart(json.data));
-      }
-    
-      useEffect(() => {
-        fetchChart();
-      },[])
+    const handleSubmitAdd = (e) => {
+        e.preventDefault();
+        if(!saisonNumber || !deathsNumber) {
+            console.error("Empty field", saisonNumber, deathsNumber)
+        } else {
+            addSaison(state);
+        }
+    }
 
-    return(
+    const handleSubmitEdit = (e) => {
+        e.preventDefault();
+        if(!saisonNumber || !deathsNumber) {
+            console.error("Empty field", saisonNumber, deathsNumber)
+        } else {
+            updateSaison(state);
+        }
+    }
+
+    useEffect(() => {
+        getSaisons();
+    }, [])
+
+    
+    
+    
+
+    console.log("data=>", data);
+
+    return (
         <div className="mainContent">
-            <div>
-                <input type="search" id="site-search" placeholder='Enter saison number' name="q"/>
-                <button>GET</button>
-                <div>
-                    <label for="site-search">  Number of deaths = </label>
-                </div>
-            </div>
+            <table className="table">
+                <thead>
+                    <tr>
+                        <th className="th">Saison</th>
+                        <th className="th">Deaths</th>
+                        <th className="th">Option</th>
 
-            <div>
-                <input type="search" id="site-search" placeholder='Enter saison number' name="q"/>
-                <button>DELETE</button>    
-            </div>
+                    </tr>
+                </thead>
+                <tbody>
+                    {data && data.map((item, index) => {
+                        return (
+                            <tr key={index}>
+                                <th scope="row">{item.saisonNumber}</th>
+                                <td>{item.deathsNumber}</td>
+                                <td>
+                                    <button className="btn-delete" onClick={() => deleteSaison(item._id)}>Delete</button>
+                                    <button className="btn-edit" onClick={() => updateSaison(item._id)}>Update</button>
 
+                                </td>
+                            </tr>
+                           
+                        )
+                    })}
+                </tbody>
+            </table>
             <div>
-                <input type="search" id="site-search" placeholder='Enter saison number' name="q"/>
-                <input type="search" id="site-search" placeholder='Enter death number' name="q"/>
-                <button>ADD</button>    
-            </div>
+                <form>
+                    <label>Season Number</label>
+                    <input placeholder="Season Number" id="saisonNumber" name="saisonNumber" onChange={handleInputChange} value={saisonNumber}></input>
 
-            <div>
-                <input type="search" id="site-search" placeholder='Enter saison number' name="q"/>
-                <input type="search" id="site-search" placeholder='Enter death number' name="q"/>
-                <button>UPDATE</button>    
-            </div>
+                    <label>Death Count</label>
+                    <input placeholder="Death Count" name="deathsNumber" onChange={handleInputChange} value={deathsNumber}></input>
 
-            <div>
-            {chart.map((chartObj) => (
-                    <div key={chartObj._id}>
-                        <p>"{chartObj.saisonNumber}"</p>
-                    </div>
-                    ))}
+                    <input type="submit" value="Add" onClick={handleSubmitAdd}></input>
+                </form>
             </div>
-            
         </div>
     )
+    
 }
 
-export default Admin;
+export default Admin
 
-/*
-
-const [quote, setQuote] = useState([])
-
-    
-
-  const fetchQuote = () => {
-    return fetch("https://www.breakingbadapi.com/api/quote?author=Walter+White")
-          .then((response) => response.json())
-          .then((data) => setQuote(data));
-  }
-
-  useEffect(() => {
-    fetchQuote();
-  },[])
-
-hello admin
-            {quote.map((quoteObj) => (
-                    <div key={quoteObj.quote_id}>
-                        <p>"{quoteObj.quote}"</p>
-                    </div>
-                    ))}
-            
-
-
-
-const Admin= ({getText}) => {
-
-    
-    return(
-        <div>
-            hello admin
-            <input
-                        placeholder="Search by name"
-                        autoFocus
-                        onChange={(e) => getText(e.target.value)}
-                    />
-        </div>
-    )
-}
-
-export default Admin;*/
+/**
+ * <input type="submit" value="Edit" onClick={updateSaison(document.getElementById("ID").value)}></input>
+ */

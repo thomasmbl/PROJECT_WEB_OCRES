@@ -102,6 +102,7 @@ function Home() {
             </div>
 
             <div className="Widgets"> 
+
                 <div className="col-1">
                     <div className="Card1">
                         {data && data.length > 0 && data.map((dataObj) => (
@@ -146,16 +147,13 @@ function Home() {
                     </div>
                 </div>
 
+                
+            
                 <div className="col-3">
-                    <div className="Card5">
-                        {quote.map((quoteObj) => (
-                            <div key={quoteObj.quote_id}>
-                                <h3>Random quote</h3>
-                                <p className="p1">"{quoteObj.quote}"</p>
-                                <p className="p2">- {quoteObj.author} -</p>
-                            </div>
-                        ))}
+                    <div className="Card5" style={{color: '#808080' }}>
+                        Mettre widget commenté ici
                     </div>
+                    
 
                     <div className="Card6">
                         <LineChart class='chart'></LineChart>
@@ -168,7 +166,19 @@ function Home() {
 
 export default Home;
 
-
+/**
+ * 
+ * 
+  <div className="Card5">
+                    {quote.map((quoteObj) => (
+                            <div key={quoteObj.quote_id}>
+                                <h3>Random quote</h3>
+                                <p className="p1">"{quoteObj.quote}"</p>
+                                <p className="p2">- {quoteObj.author} -</p>
+                            </div>
+                        ))}
+                    </div>
+ */
 
 
 
